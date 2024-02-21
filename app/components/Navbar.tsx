@@ -3,9 +3,39 @@ import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import MenuList from "./MenuList";
 type Props = {};
 
 const Navbar = (props: Props) => {
+  const serviceList = [
+    "Bulk SMS Service",
+    "Alert SMS Service",
+    "Dynamic SMS Service",
+    "Voice Call and IVR Service",
+    "SMS Shortcode",
+    "SMS API",
+    "Web Developement and Hosting",
+  ];
+  const industriesList = [
+    "Banking",
+    "Insurance",
+    "Financial Services",
+    "Healthcare",
+    "Ed Tech",
+  ];
+  const companyList = [
+    "About Us",
+    "Team",
+    "Awards",
+    "News Room",
+    "Events",
+    "Archives",
+    "Governance",
+    "Events",
+  ];
+  const [isServiceHovered, setIsServiceHovered] = useState(false);
+  const [isIndustryHovered, setIsIndustryHovered] = useState(false);
+  const [isCompanyHovered, setIsCompanyHovered] = useState(false);
   const [showModal, setShowModal] = useState<boolean>(false);
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -19,25 +49,40 @@ const Navbar = (props: Props) => {
           </div>
           <nav className="max-lg:hidden">
             <ul className="flex items-center lg:space-x-10 space-x-7 opacity-70 text-[1rem]">
-              <li>
+              <li
+                className="cursor-pointer relative hover:underline "
+                onMouseEnter={() => setIsServiceHovered(true)}
+                onMouseLeave={() => setIsServiceHovered(false)}
+              >
                 <a href="services" className="flex items-center py-3 w-full">
                   Services
                   <RiArrowDropDownLine size="1.5rem" />
                 </a>
+                {isServiceHovered && <MenuList menus={serviceList} />}
               </li>
-              <li>
+              <li
+                className="cursor-pointer relative hover:underline"
+                onMouseEnter={() => setIsIndustryHovered(true)}
+                onMouseLeave={() => setIsIndustryHovered(false)}
+              >
                 <a href="industries" className="flex items-center  py-3 w-full">
                   Industries
                   <RiArrowDropDownLine size="1.5rem" />
                 </a>
+                {isIndustryHovered && <MenuList menus={industriesList} />}
               </li>
-              <li>
+              <li
+                className="cursor-pointer relative hover:underline"
+                onMouseEnter={() => setIsCompanyHovered(true)}
+                onMouseLeave={() => setIsCompanyHovered(false)}
+              >
                 <a href="company" className="flex items-center  py-3 w-full">
                   Company
                   <RiArrowDropDownLine size="1.5rem" />
                 </a>
+                {isCompanyHovered && <MenuList menus={companyList} />}
               </li>
-              <li>
+              <li className="hover:underline">
                 <a href="contactus" className="py-3 inline-block w-full">
                   Contact Us
                 </a>
