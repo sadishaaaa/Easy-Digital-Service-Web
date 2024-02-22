@@ -4,35 +4,10 @@ import { AiOutlineClose } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import MenuList from "./MenuList";
+import { serviceList, industriesList, companyList } from "../list/menulist.js";
 type Props = {};
 
 const Navbar = (props: Props) => {
-  const serviceList = [
-    "Bulk SMS Service",
-    "Alert SMS Service",
-    "Dynamic SMS Service",
-    "Voice Call and IVR Service",
-    "SMS Shortcode",
-    "SMS API",
-    "Web Developement and Hosting",
-  ];
-  const industriesList = [
-    "Banking",
-    "Insurance",
-    "Financial Services",
-    "Healthcare",
-    "Ed Tech",
-  ];
-  const companyList = [
-    "About Us",
-    "Team",
-    "Awards",
-    "News Room",
-    "Events",
-    "Archives",
-    "Governance",
-    "Events",
-  ];
   const [isServiceHovered, setIsServiceHovered] = useState(false);
   const [isIndustryHovered, setIsIndustryHovered] = useState(false);
   const [isCompanyHovered, setIsCompanyHovered] = useState(false);
